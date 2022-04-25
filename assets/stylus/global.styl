@@ -1,0 +1,492 @@
+@import 'fonts'
+
+$primary = #000
+$secondary = #e40a14
+$white = #FFFFFF66
+$gray = #130D0B66
+$dark_primary = #020F1D
+$black = #111
+$blue = #438EFF
+$red = #EA5455
+$gray = #7A7A7A
+$gray_v2 = #F6F6F6
+$gray_v3 = #C3C3C3
+$gray_v4 = #E2E2E2
+$success = #5cbf69
+$warning = #ffc800
+
+
+
+*,
+*:before,
+*:after
+    user-select: text
+    box-sizing: border-box
+    margin: 0
+    -webkit-user-drag: none
+body
+    background-color: blue
+    position: relative
+    overflow-x: hidden
+    background-color: $primary
+    padding: 0
+    margin: 0
+    &.no_click
+        pointer-events: none
+    &.no_scroll
+        overflow-y: hidden
+    &::-webkit-scrollbar
+        width: 15px
+        background-color: transparent
+    &::-webkit-scrollbar-track
+        box-shadow: none
+    &::-webkit-scrollbar-thumb
+        background-color: #e40a14
+        border: 3px solid transparent
+        background-clip: padding-box
+        border-radius: 50px
+textarea
+    &::-webkit-scrollbar
+        width: 10px
+        background-color: transparent
+    &::-webkit-scrollbar-track
+        box-shadow: none
+    &::-webkit-scrollbar-thumb
+        background-color: #e40a14
+        border: 3px solid transparent
+        background-clip: padding-box
+        border-radius: 50px
+.options
+    &::-webkit-scrollbar
+        width: 10px
+        background-color: transparent
+    &::-webkit-scrollbar-track
+        box-shadow: none
+    &::-webkit-scrollbar-thumb
+        background-color: #e40a14
+        border: 3px solid transparent
+        background-clip: padding-box
+        border-radius: 50px
+html
+    -webkit-text-size-adjust: none
+    -webkit-font-smoothing: subpixel-antialiased
+    backface-visibility: hidden
+input,
+input:before,
+input:after,
+textarea,
+textarea:before,
+textarea:after,
+select,
+select:before,
+select:after
+    user-select: initial
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: 0
+h1,
+h2,
+h3,
+h4,
+h5
+    font-weight: normal
+
+table
+    width: 100%
+    border-collapse: collapse
+
+img
+    width: auto
+    max-width: 100%
+    {image_default}
+    transition: .3s ease-in-out
+p
+    word-break: break-word
+a
+    text-decoration: none
+
+ul
+    padding: 0
+    list-style-type: none
+    &.terms_ul 
+        margin-left: 45px
+        list-style-type: unset
+        padding: 10px 0
+.no_font
+    font-size: 0
+input,
+select,
+textarea
+    -webkit-appearance: none
+    background-color: transparent
+    box-shadow: none
+    outline: none
+    border: none
+    background-color: $white
+    width: 100%
+&::placeholder
+    color: rgba(0, 0, 0, 0.5)
+    text-transform: none
+a
+    cursor: pointer
+    display: block
+.btn
+    display: inline-block
+    border-radius: 4px
+    background-color: #e50914
+    padding: 7px 17px
+    font-size: 16px
+    color: #fff
+    border: unset
+    cursor: pointer
+
+.page_wrapper
+    width: 100%
+    max-width: 90%
+    padding: 40px 20px
+    margin: 0 auto
+
+.link
+    color: #e40a14
+    text-decoration: underline
+    position: relative
+.group
+    position: relative
+    .validate
+        position: absolute
+        top: calc(100% + 5px)
+        background-color: red
+        color: white
+        font-family: 'bebas-bold'
+        z-index: 1
+        padding: 5px 10px
+        border-radius: 5px
+        user-select: none
+        right: 0
+        &::before
+            content: ""
+            position: absolute
+            bottom: calc(100% - 1px)
+            width: 0
+            height: 0
+            border-left: 7px solid transparent
+            border-right: 7px solid transparent
+            border-bottom: 7px solid red
+            right: 17px
+            z-index: 1
+
+#dialog
+    position: fixed
+    left: 0
+    z-index: 1024
+    font-family: 'bebas-bold'
+    &.centered
+        .wrapper
+            .content
+                top: 50%
+                transform: translateY(-50%)
+                animation: centered_slide 1s
+    &.overlap
+        z-index: 9999
+    .wrapper
+        position: fixed
+        top: 0
+        left: 0
+        z-index: 1050
+        width: 100%
+        height: 100%
+        outline: 0
+        overflow-x: hidden
+        overflow-y: auto
+        .content
+            position: relative
+            z-index: 1041
+            width: auto
+            max-width: 600px
+            border-radius: 5px
+            margin: 0 auto
+            background-color: white
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3)
+            transform: translateY(50px)
+            animation: basic_slide 1s
+            &.extended
+                max-width: 900px
+            &.secondary
+                .close
+                    background-color: $dark_primary
+                .content_top
+                    color: $dark_primary
+            &.success
+                .close
+                    background-color: $success
+                .content_top
+                    color: $success
+            &.cancel
+                .close
+                    background-color: $red
+                .content_top
+                    color: $red
+            &.warning
+                .close
+                    background-color: $warning
+                .content_top
+                    color: $warning
+            &.info
+                .close
+                    background-color: $blue
+                .content_top
+                    color: $blue
+            &.dark
+                .close
+                    background-color: $gray
+                .content_top
+                    color: $gray
+            .close
+                position: absolute
+                top: -3px
+                right: -3px
+                display: inline-block
+                padding: 5px 10px
+                opacity: 1
+                border-radius: 5px
+                brandon_regular(20px, false)
+                background-color: $primary
+                color: $white
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+                z-index: 2
+                line-height: 1
+                transition: .3s ease-in-out
+                &:hover
+                    top: -6px
+                    right: -6px
+                    transition: .3s ease-in-out
+            .content_top
+                border-radius: 5px 5px 0 0
+                background-color: rgba(0, 0, 0, 0.05)
+                padding: 10px 20px
+                brandon_medium(20px, false)
+                color: $primary
+            .content_middle
+                padding: 10px 20px
+                brandon_light(16px, false)
+                color: $black
+                .disclaimer
+                    .violator
+                        brandon_light(16px, false)
+                        color: $black
+            .content_bottom
+                border-top: 2px solid rgba(0, 0, 0, 0.05)
+                text-align: right
+                padding: 10px 20px
+    .backdrop
+        position: fixed
+        top: 0
+        z-index: 1040
+        width: 100vw
+        height: 100vh
+        background-color: rgba(0, 0, 0, 0.2)
+
+.btn_favorite
+    position: relative
+    z-index: 2
+
+/**
+ * Buttons */
+.primary_button
+    display: inline-block
+    brandon_medium(14px, true)
+    color: $white
+    padding: 10px 15px
+    border: 1px solid $blue
+    background-color: $blue
+    border-radius: 10px
+    box-shadow: 0 0 20px transparent
+    text-align: center
+    transform: translateY(0)
+    transition: .3s ease-in-out
+    &.rounded
+        border-radius: 50px
+    &.rectangle
+        border-radius: 0px
+    &.outline
+        color: $blue
+        background-color: transparent
+    &.flat
+        color: $blue
+        border: none
+        background-color: transparent
+    &:hover
+        box-shadow: 0 0 20px rgba(0, 132, 176, 0.5)
+        transform: translateY(-5px)
+        transition: .3s ease-in-out
+        &.outline
+            color: $white
+            background-color: $blue
+            transition: .3s ease-in-out
+        &.flat
+            box-shadow: none
+            background-color: rgba(0, 132, 176, 0.2)
+            transition: .3s ease-in-out
+            
+/**
+    * Animations */
+.fade_in
+    animation: fade_in .5s
+/*
+*** For transitions
+*/
+.page-enter-active,
+.page-leave-active
+    transition: all .7s ease-in-out
+
+.page-enter,
+.page-leave-to
+    opacity: 0
+
+.slide-enter-active,
+.slide-leave-active
+    transition: all .7s ease-in-out
+
+.slide-enter,
+.slide-leave-to
+    opacity: 0
+    transform: translateY(-20px)
+
+.slideAlt-enter-active,
+.slideAlt-leave-active
+    transition: all .2s ease-in-out
+
+.slideAlt-enter,
+.slideAlt-leave-to
+    opacity: 0
+    visibility: hidden
+    transform: translateY(50px)
+
+.slideAltY-enter-active,
+.slideAltY-leave-active
+    transition: all .2s ease-in-out
+
+.slideAltY-enter,
+.slideAltY-leave-to
+    opacity: 0
+    visibility: hidden
+    transform: translateY(50px) translateX(-50%)
+
+.slideX-enter-active,
+.slideX-leave-active
+    transition: all .7s ease-in-out
+
+.slideX-enter,
+.slideX-leave-to
+    opacity: 0
+    transform: translateX(-10px)
+
+.slideXAlt-enter-active,
+.slideXAlt-leave-active
+    transition: all .7s ease-in-out
+
+.slideXAlt-enter,
+.slideXAlt-leave-to
+    opacity: 0
+    transform: translateX(10px)
+
+.fade_in
+    animation: fade_in .3s
+
+.fade_out
+    animation: fade_out .3s
+
+.slide_from_left
+    animation: slide_from_left .3s
+
+.slide_from_right
+    animation: slide_from_right .3s
+/***
+*Key Frames*/
+// call using this animation animation: bloop 1s linear
+@keyframes fade_in
+    from
+        opacity: 0
+    to
+        opacity: 1
+
+@keyframes fade_out
+    from
+        opacity: 1
+    to
+        opacity: 0
+
+@keyframes slide_from_left
+    from
+        opacity: 0
+        transform: translateX(-100px)
+    to
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes slide_from_right
+    from
+        opacity: 0
+        transform: translateX(100px)
+    to
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes slide_from_rightY
+    from
+        opacity: 0
+        transform: translateY(-50%) translateX(100px)
+    to
+        opacity: 1
+        transform: translateY(-50%) translateX(0px)
+
+@keyframes slide_from_bottom
+    from
+        opacity: 0
+        transform: translateY(100px)
+    to
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes slide_from_top
+    from
+        opacity: 0
+        transform: translateY(-100px)
+    to
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes loader
+    0%
+        top: 6px
+        height: 51px
+    50%, 100%
+        top: 19px
+        height: 26px
+
+@keyframes blink
+    0%
+        opacity: 1
+    50%, 100%
+        opacity: 0.3
+
+@keyframes dash
+    from
+        stroke-dashoffset: 500
+    to
+        stroke-dashoffset: 0
+
+@keyframes bounce
+    0%
+        top: 30px
+        height: 5px
+        border-radius: 60px 60px 20px 20px
+        transform: scaleX(2)
+    35%
+        height: 15px
+        border-radius: 50%
+        transform: scaleX(1)
+        background-color: $green_alt
+    100%
+        top: 0
